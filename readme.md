@@ -133,24 +133,29 @@ raw_response <- ask_gemini("Simple R question", format_output = FALSE)
 - `context_file`: Single file path
 - `context_files`: Vector of multiple file paths
 
-```r
+---
+
 # Single file context
+```
 ask_gemini("Explain this code and suggest improvements", 
            context_file = "my_analysis.R")
-
+```
 # Multiple files context
+```
 ask_gemini_advanced("Compare these datasets and create a merged analysis", 
                    context_files = c("data1.csv", "data2.csv", "analysis.R"),
                    save_to_file = TRUE)
-
+```
 # Data file context
+```
 ask_gemini("Create a visualization for this dataset", 
            context_file = "sales_data.csv")
-
+```
 # Mixed context
+```
 ask_gemini("Review this analysis and suggest improvements",
            context_files = c("analysis.R", "data.csv", "notes.txt"))
-
+```
 
 ## Output Format 📄
 
