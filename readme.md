@@ -209,7 +209,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Google AI for the Gemini API
 - R community for the excellent HTTP and JSON libraries
-- Contributors and users who help improve this tool
 
 ## Support 💬
 
