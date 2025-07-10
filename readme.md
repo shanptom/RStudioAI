@@ -1,10 +1,11 @@
 # Gemini AI R Interface 🤖
 
-A simple and user-friendly R function to interact with Google's Gemini AI API directly from RStudio. Generate R code, get explanations, and save responses as formatted R Markdown files.
+A simple and user-friendly R function to interact with Google's Gemini AI API directly from RStudio. Generate R code, get explanations, and automatically save responses as formatted R Markdown files.
 
 ## Features ✨
 
-- **Easy Integration**: Call Gemini AI directly from R
+- **Easy Integration**: Call Gemini AI directly from R / RStudio
+- **Contextual Understanding**: Provide context with R scripts or data files
 - **Formatted Output**: Clean, readable responses with visual separators
 - **R Markdown Export**: Save responses as .Rmd files with proper formatting
 - **Error Handling**: Robust timeout and retry mechanisms
@@ -97,6 +98,8 @@ ask_gemini("Write R code for linear regression analysis")
 ```r
 # Save response as R Markdown file
 ask_gemini_advanced("Write R code to create a line plot",
+                   context_file = "path/to/your/data.csv",
+                   context_files = c("analysis.R", "data.csv"),
                    save_to_file = TRUE,
                    open_file = TRUE)
 
@@ -126,6 +129,27 @@ raw_response <- ask_gemini("Simple R question", format_output = FALSE)
 - `save_to_file`: Save response to file (default: FALSE)
 - `filename`: Custom filename (optional)
 - `open_file`: Automatically open saved file (default: FALSE)
+- `context_file`: Single file path
+- `context_files`: Vector of multiple file paths
+
+```r
+# Single file context
+ask_gemini("Explain this code and suggest improvements", 
+           context_file = "my_analysis.R")
+
+# Multiple files context
+ask_gemini_advanced("Compare these datasets and create a merged analysis", 
+                   context_files = c("data1.csv", "data2.csv", "analysis.R"),
+                   save_to_file = TRUE)
+
+# Data file context
+ask_gemini("Create a visualization for this dataset", 
+           context_file = "sales_data.csv")
+
+# Mixed context
+ask_gemini("Review this analysis and suggest improvements",
+           context_files = c("analysis.R", "data.csv", "notes.txt"))
+
 
 ## Output Format 📄
 
@@ -135,25 +159,6 @@ The function creates R Markdown files with:
 - Response section with properly formatted R code blocks
 - Ready to knit to HTML, PDF, or Word
 
-## Examples 💡
-
-### Example 1: Basic Data Analysis
-```r
-ask_gemini("Write R code to load a CSV file and create summary statistics")
-```
-
-### Example 2: Visualization with File Save
-```r
-ask_gemini_advanced("Create a comprehensive ggplot2 visualization tutorial",
-                   save_to_file = TRUE,
-                   filename = "ggplot2_tutorial.Rmd",
-                   open_file = TRUE)
-```
-
-### Example 3: Statistical Modeling
-```r
-ask_gemini("Write R code for multiple linear regression with diagnostic plots")
-```
 
 ## Error Handling 🔧
 
