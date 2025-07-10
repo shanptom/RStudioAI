@@ -1,4 +1,4 @@
-# Gemini AI R Interface 🤖
+# Gemini AI R / R Studio Integration 🤖
 
 A simple and user-friendly R function to interact with Google's Gemini AI API directly from RStudio. Generate R code, get explanations, and automatically save responses as formatted R Markdown files.
 
