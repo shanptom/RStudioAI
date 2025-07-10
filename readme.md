@@ -101,7 +101,8 @@ ask_gemini_advanced("Write R code to create a line plot",
                    context_file = "path/to/your/data.csv",
                    context_files = c("analysis.R", "data.csv"),
                    save_to_file = TRUE,
-                   open_file = TRUE)
+                   open_file = TRUE,
+                   custom_timeout = "100" #seconds)
 
 # Custom filename
 ask_gemini("Create a data cleaning function", 
